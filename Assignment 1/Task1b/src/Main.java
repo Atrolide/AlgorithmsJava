@@ -15,9 +15,7 @@ public class Main {
         ArrayList<Long> execTime = new ArrayList<>();
         ArrayList<Float> avgTime = new ArrayList<>();
 
-        //                D:\Learning Materials\Java\AlgorithmsJava\Ex1b\Task1b\src\creditcardnumbers.txt
-
-        List<String> lines = Files.readAllLines(Path.of("D:\\Learning Materials\\Java\\AlgorithmsJava\\Ex1b\\Task1b\\src\\creditcardnumbers.txt"));
+        List<String> lines = Files.readAllLines(Path.of("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\creditcardnumbers.txt"));
 
         int step = 500;
         int maxNumOfLines = lines.size();
@@ -54,7 +52,7 @@ public class Main {
 //                  "D:\\Learning Materials\\Java\\AlgorithmsJava\\Ex1b\\Task1b\\src"
 
         StringBuilder stringBuilder = new StringBuilder();
-        File myObj = new File("D:\\Learning Materials\\Java\\AlgorithmsJava\\Ex1b\\Task1b\\src\\avggraph.csv");
+        File myObj = new File("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\avggraph.csv");
         myObj.delete();
 
         stringBuilder.append(";").append("Quick Sort").append("\n");
@@ -64,7 +62,7 @@ public class Main {
             stringBuilder.append((i + 1) * step + "lines").append(";").append(quickAvg).append("μs").append("\n");
         }
 
-        try (FileWriter writer = new FileWriter("D:\\Learning Materials\\Java\\AlgorithmsJava\\Ex1b\\Task1b\\src\\avggraph.csv")) {
+        try (FileWriter writer = new FileWriter("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\avggraph.csv")) {
             writer.write(stringBuilder.toString());
             System.out.println("CSV file created");
         } catch (Exception e) {
