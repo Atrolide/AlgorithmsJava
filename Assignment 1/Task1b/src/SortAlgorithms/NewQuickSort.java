@@ -17,8 +17,8 @@ public class NewQuickSort {
     }
 
     public void printArr() {
-        for (int i = 0; i < toBeSorted.size(); i++) {
-            System.out.println(i + 1 + ". -> " + toBeSorted.get(i).pinNumber());
+        for (int i = 0; i < count; i++) {
+            System.out.println(i + 1 + ". -> " + toBeSorted.get(i).cardNumber() + " " + toBeSorted.get(i).pinNumber());
         }
     }
 
@@ -44,12 +44,9 @@ public class NewQuickSort {
     }
 
     private static void swap(ArrayList<CardData> someArray, int i, int j) {
-
         CardData m = someArray.get(i);
-
         someArray.set(i, someArray.get(j));
         someArray.set(j, m);
-
     }
 
     public void executeSort() {

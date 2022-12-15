@@ -23,13 +23,14 @@ public class Test {
         cardData.add(new CardData(parts[0], Integer.parseInt(parts[1])));
     }
 
-        for (int i = step; i < lines.size() - 1; i += step) {
+        for (int i = step; i < maxNumOfLines + 1; i += step) {
             float sum = 0;
-//            for (int j = 0; j < precision; j++) {
-//                CountingSort test2Arr = new CountingSort(cardData, i);
-//
+            for (int j = 0; j < precision; j++) {
+                CountingSort test2Arr = new CountingSort(cardData, i);
+                test2Arr.executeSort();
             }
-            CountingSort test2Arr = new CountingSort(cardData);
+        }
+            CountingSort test2Arr = new CountingSort(cardData, 1);
 //            test2Arr.copyArr();
 //            test2Arr.printArr();
             test2Arr.executeSort();

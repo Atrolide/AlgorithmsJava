@@ -8,15 +8,17 @@ public class CountingSort {
     long startTime;
     long endTime;
     long totalTime;
+    int count;
 
-    public CountingSort(ArrayList<CardData> someArr) {
+    public CountingSort(ArrayList<CardData> someArr, int index) {
         toBeSorted = new ArrayList<>(someArr);
+        count = index;
     }
 
 
     public void printArr() {
-        for (int i = 0; i < toBeSorted.size(); i++) {
-            System.out.println(toBeSorted.get(i).cardNumber() + " " + toBeSorted.get(i).pinNumber());
+        for (int i = 0; i < count; i++) {
+            System.out.println(i + 1 + ". -> " + toBeSorted.get(i).cardNumber() + " " + toBeSorted.get(i).pinNumber());
         }
     }
 
@@ -25,7 +27,7 @@ public class CountingSort {
             list.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < toBeSorted.size(); i++) {
+        for (int i = 0; i < count; i++) {
             list.get(toBeSorted.get(i).pinNumber()).add(toBeSorted.get(i).cardNumber());
         }
 
