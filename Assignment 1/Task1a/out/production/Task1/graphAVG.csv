@@ -1,0 +1,2 @@
+;Bubble Sort;Insertion Sort;Merge Sort;Quick Sort
+Array size 10000 Average Runtime;281857μs;46041μs;1841μs;1724μs
