@@ -21,8 +21,8 @@ public class Main {
 
         List<String> lines = Files.readAllLines(Path.of("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\creditcardnumbers.txt"));
 
-        int step = 100;
-        int maxNumOfLines = 2000;
+        int step = 1000;
+        int maxNumOfLines = lines.size();
         int precision = 1;
 
         for (String line : lines) {
@@ -71,11 +71,12 @@ public class Main {
         File myObj = new File("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\avggraph.csv");
         myObj.delete();
 
-        stringBuilder.append(";").append("Quick Sort").append("\n");
+        stringBuilder.append(";").append("Quick Sort").append(";").append("Counting Sort").append("\n");
 
         for (int i = 0; i < maxNumOfLines / step; i++) {
             String quickAvg = quickAvgTime.get(i).toString();
-            stringBuilder.append((i + 1) * step + "lines").append(";").append(quickAvg).append("μs").append("\n");
+            String countingAvg = countAvgTime.get(i).toString();
+            stringBuilder.append((i + 1) * step + "lines").append(";").append(quickAvg).append("μs").append(";").append(countingAvg).append("μs").append("\n");
         }
 
         try (FileWriter writer = new FileWriter("D:\\Learning Materials\\Java\\AlgorithmsJava\\Assignment 1\\Task1b\\src\\avggraph.csv")) {
@@ -86,3 +87,4 @@ public class Main {
         }
     }
 }
+

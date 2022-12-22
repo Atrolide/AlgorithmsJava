@@ -34,7 +34,6 @@ public class CountingSort {
         toBeSorted.clear();
 
         for (int i = 0; i < 10000; i++) {
-
             if (list.get(i).size() == 0) continue;
 
             ArrayList<String> ll = list.get(i);
