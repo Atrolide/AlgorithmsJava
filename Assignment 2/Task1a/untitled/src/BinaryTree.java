@@ -24,15 +24,20 @@ public class BinaryTree {
         */
     }
 
-    // Definition of a "helper" insert method, it puts the value at the correct position to our binary tree
-
-    //TODO - check and explain why we look if `node == null`
+        // Definition of a "helper" insert method, it puts the value at the correct position to our binary tree
     private Node insert(Node node, int data) {
-        // If the node is null -> create a new node with the current value (constructor from line 11)
+          /*
+          If the node is null -> create a new node with the current value (constructor from line 11)
+          We check if node == null because `node` argument starts as the `root` node of the tree,
+          if the root node is null, it means the tree is currently empty
+          */
         if (node == null) {
             return new Node(data);
         }
-        //TODO - ask why do we compare `node.data`
+        /*
+        `node.data` is the value stored in each node of the binary tree.
+        It is used to determine the location of the other nodes in the tree.
+        */
 
         // If value is less than data in the node -> insert as the left child
         if (data < node.data) {
@@ -44,7 +49,14 @@ public class BinaryTree {
         return node;
     }
 
-    //TODO - Explain `find` method in comments
+    /*
+     We compare the `data` value passed in the method with the value stored in the current node.
+     If `data` is less than value in current node, it calls itself on `left` child of current node with same `data` value.
+     If `data` is greater than value in current node, it calls itself on `right` child of current node with same `data` value.
+     This process continues until the value is found or the current node == null <==> the data is not in the tree.
+     */
+
+    //TODO - Fix the output, if tree is empty print info that tree is empty and not `key -1 found`
     public int find(int data) {
         return find(root, data);
     }
@@ -74,6 +86,51 @@ public class BinaryTree {
             System.out.println(node.data);
             inOrderTraversal(node.right);
         }
+    }
+
+    // Method to empty a binary tree, we set root to null
+    public void makeEmpty(){
+        root = null;
+        makeEmpty(root);
+    }
+
+    // We call this method recursively on children, until we empty a whole tree
+    public void makeEmpty(Node node) {
+        if (node != null) {
+            makeEmpty(node.left);
+            makeEmpty(node.right);
+            node = null;
+        }
+    }
+
+    public void insertArray(int[] arr, int start, int end) {
+        if (start <= end) {
+            int mid = (start + end) / 2;
+            insert(arr[mid]);
+            insertArray(arr, start, mid - 1);
+            insertArray(arr, mid + 1, end);
+        }
+    }
+
+    // TODO - Method to draw/print a binary tree
+    public void printTree() {
+        printTree(root, 0);
+    }
+
+    private void printTree(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+        printTree(node.right, level + 1);
+        if (level != 0) {
+            for (int i = 0; i < level - 1; i++) {
+                System.out.print("|\t");
+            }
+            System.out.println("|-------" + node.data);
+        } else {
+            System.out.println(node.data);
+        }
+        printTree(node.left, level + 1);
     }
 
 
