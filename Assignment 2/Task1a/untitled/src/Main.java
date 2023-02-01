@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         BinaryTree cont = new BinaryTree();                              // Create `cont` object of BinaryTree class
         Random rand = new Random();                                      // Create `rand` object of Random class
-        int n = 8191;                                                       // number of keys to insert
+        int n = 255;                                                       // number of keys to insert
 
         ArrayList<Long> insertTotalOR = new ArrayList<>();
         ArrayList<Long> findTotalOR= new ArrayList<>();
@@ -146,7 +146,7 @@ public class Main {
             // Measure time for finding keys
             long FstartTimeLib = System.nanoTime();
             // Method `contains` is from TreeSet Library to look for keys in a tree
-            IntStream.of(keys).forEach(key -> tree.add(key));
+            IntStream.of(keys).forEach(key -> tree.contains(key));      //change in code made here, switched from 'add' to 'contains'
             long FendTimeLib = System.nanoTime();
             long FelapsedTimeLib = FendTimeLib - FstartTimeLib;
 
@@ -205,9 +205,3 @@ public class Main {
 
     }
 }
-
-  /*
-         Conajmniej dla 3 róznych wielkości arraya w formie histogramu
-         np 100, 1000, 10000
-        * */
-// TODO  - Wykonać wszystko w pętli 100 razy, podać uśrednioną wartość
